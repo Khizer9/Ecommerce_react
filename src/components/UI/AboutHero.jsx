@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const AboutHero = () => {
   return (
@@ -9,9 +10,16 @@ const AboutHero = () => {
             Slow-carb next level shoindxgoitch ethical authentic, scenester
             sriracha forage.
           </h1>
-          <button className="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0">
+          {/* <button className="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0">
             Button
-          </button>
+          </button> */}
+
+          <Button
+            style={{}}
+            className="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0"
+            btnText={"Contact"}
+            linkAddress={"/contact"}
+          />
         </div>
       </div>
     </section>

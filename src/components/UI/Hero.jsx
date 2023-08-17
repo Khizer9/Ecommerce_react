@@ -1,5 +1,6 @@
 import React from "react";
 import backgroundImage from '../Assets/mainBg.png';
+import Button from "./Button";
 const Hero = () => {
   const bgImage = `url(${backgroundImage})`;
   return (
@@ -20,13 +21,13 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
+              {/* <a
                 className="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
                 href="/get-started"
               >
                 Get Started
-              </a>
-
+              </a> */}
+              <Button style={{}} btnText={'Get Started'} linkAddress={'/services'}/>
               <a
                 className="block w-full rounded px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
                 href="/about"
