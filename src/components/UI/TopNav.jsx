@@ -18,11 +18,11 @@ const TopNav = () => {
     <>
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
         {/* logo */}
-        <a className="text-3xl font-bold leading-none" href="#">
+        <Link className="text-3xl font-bold leading-none" to="/">
           <h4 className="text-blue-800">
             E <span className="text-blue-500">commerce</span>{" "}
           </h4>
-        </a>
+        </Link>
 
         <div className="lg:hidden">
           <button
@@ -66,7 +66,6 @@ const TopNav = () => {
             <Link
               to={"/about-us"}
               className={`text-sm ${activeLink("about-us", linkName)} `}
-              href="#"
             >
               About Us
             </Link>
@@ -88,12 +87,12 @@ const TopNav = () => {
             </svg>
           </li>
           <li>
-            <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
+            <Link className={`text-sm ${activeLink("services", linkName)} `} to="/services">
               Services
-            </a>
+            </Link>
           </li>
           <li className="text-gray-300">
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               stroke="currentColor"
@@ -106,9 +105,9 @@ const TopNav = () => {
                 strokeWidth="2"
                 d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
               />
-            </svg>
+            </svg> */}
           </li>
-          <li>
+          {/* <li>
             <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
               Pricing
             </a>
@@ -133,7 +132,7 @@ const TopNav = () => {
             <a className="text-sm text-gray-400 hover:text-gray-500" href="#">
               Contact
             </a>
-          </li>
+          </li> */}
         </ul>
 
         <Link
@@ -142,12 +141,12 @@ const TopNav = () => {
         >
           Sign In
         </Link>
-        <a
+        <Link
           className="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-          href="#"
+          to="/signup"
         >
           Sign up
-        </a>
+        </Link>
       </nav>
 
       {/* mpobile menu */}

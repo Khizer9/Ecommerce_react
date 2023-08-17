@@ -1,6 +1,7 @@
 import React from "react";
 import TopNav from "../UI/TopNav";
 import Footer from "../UI/Footer";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -54,9 +55,9 @@ const Login = () => {
             <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Login
             </button>
-            <p class="text-xs text-gray-500 mt-3">
-              Chicharrones blog helvetica normcore iceland tousled brook viral
-              artisan.
+            <p class="mt-10 text-sm text-gray-500 sm:mt-0" style={{marginTop: "10px"}}>
+              Want to Register?
+              <Link to="/signup" class="text-gray-700 underline ">   Signup</Link>.
             </p>
           </div>
         </div>
