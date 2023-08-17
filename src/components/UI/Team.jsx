@@ -1,16 +1,19 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import khizerImage from '../Assets/khizer.jpg'
+import DemoImage from '../Assets/feed5.png'
 
 const Team = () => {
   return (
     <>
+    <Fade top cascade>
       <section class="text-gray-600 body-font">
         <div class="container px-40 py-24 mx-auto">
           <div class="flex flex-col text-center w-full mb-20">
             <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">
-              <Fade top cascade>
+              
                 OUR TEAM
-              </Fade>
+              
             </h1>
             <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
               Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
@@ -25,12 +28,12 @@ const Team = () => {
                 <img
                   alt="team"
                   class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                  src="https://dummyimage.com/200x200"
+                  src={khizerImage}
                 />
-                <Fade top cascade>
+               
                   <div class="flex-grow sm:pl-8">
                     <h2 class="title-font font-medium text-lg text-gray-900">
-                      Holden Caulfield
+                      Khizer Ali
                     </h2>
                     <h3 class="text-gray-500 mb-3">UI Developer</h3>
                     <p class="mb-4">
@@ -79,7 +82,7 @@ const Team = () => {
                       </a>
                     </span>
                   </div>
-                </Fade>
+                
               </div>
             </div>
             <div class="p-4 lg:w-1/2">
@@ -87,11 +90,11 @@ const Team = () => {
                 <img
                   alt="team"
                   class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                  src="https://dummyimage.com/201x201"
+                  src={DemoImage}
                 />
                 <div class="flex-grow sm:pl-8">
                   <h2 class="title-font font-medium text-lg text-gray-900">
-                    Alper Kamu
+                    Hadi 
                   </h2>
                   <h3 class="text-gray-500 mb-3">Designer</h3>
                   <p class="mb-4">
@@ -265,6 +268,7 @@ const Team = () => {
           </div>
         </div>
       </section>
+      </Fade>
     </>
   );
 };

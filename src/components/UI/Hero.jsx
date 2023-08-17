@@ -1,9 +1,10 @@
 import React from "react";
-
+import backgroundImage from '../Assets/mainBg.png';
 const Hero = () => {
+  const bgImage = `url(${backgroundImage})`;
   return (
     <>
-      <section className="bg-gray-50">
+      <section className="bg-gray-50" style={{ backgroundImage: bgImage, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.9 }}>
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
           <div className="mx-auto max-w-xl text-center">
             <h1 className="text-3xl font-extrabold sm:text-5xl">
@@ -13,7 +14,7 @@ const Hero = () => {
               </strong>
             </h1>
 
-            <p className="mt-4 sm:text-xl/relaxed">
+            <p className="mt-4 sm:text-xl/relaxed" style={{color: 'white'}}>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
               illo tenetur fuga ducimus numquam ea!
             </p>
