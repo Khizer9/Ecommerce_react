@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-gray-100">
-  <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+  <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
     <div className="flex justify-center text-teal-600">
       <svg
         className="h-8"
@@ -182,6 +182,26 @@ const Footer = () => {
 
     </ul>
   </div>
+
+  <div class="mt-16 border-t border-gray-100 pt-8">
+      <p class="text-center text-xs/relaxed text-gray-500">
+        © Company 2022. All rights reserved.
+
+        <br />
+
+          Created with
+        <Link
+          to='https://react.dev/'
+          class="text-gray-700 underline transition hover:text-gray-700/75">ReactJS
+       </Link>
+             
+        and
+        <Link
+          to='https://tailwindcss.com/docs/guides/create-react-app'
+          class="text-gray-700 underline transition hover:text-gray-700/75" >
+           Tailwind CSS  </Link>.
+      </p>
+    </div>
 </footer>
     </>
   );
