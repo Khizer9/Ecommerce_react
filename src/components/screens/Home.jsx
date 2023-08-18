@@ -1,17 +1,21 @@
 import React from "react";
 import TopNav from "../UI/TopNav";
-import Hero from "../UI/Hero";
 import Stats from "../UI/Stats";
 import Footer from "../UI/Footer";
 import Team from "../UI/Team";
 import Button from "../UI/Button";
+import TestimonialAdvance from "../UI/TestimonialAdvance";
+import MainSlider from "../UI/MainSlider";
+import TestimonialManual from "../UI/TestimonialManual";
 
 const Home = () => {
   return (
     <>
       <TopNav />;
-      <Hero />
+      <MainSlider />
       <Stats />
+      <TestimonialManual />
+      <TestimonialAdvance />
       <Team />
       <Button
         btnText={"About"}
