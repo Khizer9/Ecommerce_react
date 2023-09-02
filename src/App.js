@@ -5,9 +5,11 @@ import Login from "./components/screens/Login";
 import Signup from "./components/screens/Signup";
 import Service from "./components/screens/Service";
 import Contact from "./components/screens/Contact";
+import { ProductProvider } from "./context/ProductContext";
 
 function App() {
   return (
+    <ProductProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
+    </ProductProvider>
   );
 }
 

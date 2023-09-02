@@ -17,19 +17,19 @@ const Stats = () => {
               <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
                 <CountUp start={50} end={1000} duration={2.75} />
               </h2>
-              <p className="leading-relaxed">Subscribes</p>
+              <p className="leading-relaxed">Products</p>
             </div>
             <div className="p-4 sm:w-1/4 w-1/2">
               <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
                 <CountUp start={20} end={2000} duration={2.75} />
               </h2>
-              <p className="leading-relaxed">Downloads</p>
+              <p className="leading-relaxed">Buyers</p>
             </div>
             <div className="p-4 sm:w-1/4 w-1/2">
               <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">
-                <CountUp start={5} end={90} duration={2.75} />
+                <CountUp start={5} end={2800} duration={2.75} />
               </h2>
-              <p className="leading-relaxed">Products</p>
+              <p className="leading-relaxed">Delivered</p>
             </div>
           </div>
         </div>

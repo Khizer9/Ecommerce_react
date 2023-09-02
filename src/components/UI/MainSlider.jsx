@@ -3,6 +3,9 @@ import {
   MDBCarousel,
   MDBCarouselItem,
 } from 'mdb-react-ui-kit';
+import MainSliderImg1 from '../Assets/mainslider1.jpg'
+import MainSliderImg2 from '../Assets/mainslide2.jpg'
+import MainSliderImg3 from '../Assets/mainslider3.jpg'
 
 const MainSlider = () => {
   return (
@@ -11,7 +14,7 @@ const MainSlider = () => {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={1}
-        src='https://mdbootstrap.com/img/new/slides/041.jpg'
+        src={MainSliderImg1}
         alt='...'
       >
         <h5>First slide label</h5>
@@ -20,7 +23,7 @@ const MainSlider = () => {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={2}
-        src='https://mdbootstrap.com/img/new/slides/042.jpg'
+        src={MainSliderImg2}
         alt='...'
       >
         <h5>Second slide label</h5>
@@ -29,7 +32,7 @@ const MainSlider = () => {
       <MDBCarouselItem
         className='w-100 d-block'
         itemId={3}
-        src='https://mdbootstrap.com/img/new/slides/043.jpg'
+        src={MainSliderImg3}
         alt='...'
       >
         <h5>Third slide label</h5>
