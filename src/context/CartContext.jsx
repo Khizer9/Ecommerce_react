@@ -5,8 +5,9 @@ const CartContext = createContext();
 export function CartProvider({children}){
     const [cart, setCart] = useState([])
 
-    const addToCart = () => {
-        setCart([...cart])
+    const addToCart = (product) => {
+        const updateCart = [...cart, product]
+        setCart(updateCart)
     }
 
     const removeFromCart = (itemToRemove) => {

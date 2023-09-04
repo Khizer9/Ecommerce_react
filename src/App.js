@@ -9,6 +9,7 @@ import { ProductProvider } from "./context/ProductContext";
 import ProductDetails from "./components/screens/ProductDetails";
 import Products from "./components/screens/Products";
 import { CartProvider } from "./context/CartContext";
+import CartDetails from "./components/UI/CartDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product-detail/:id" element={<ProductDetails />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/carts" element={<CartDetails />} />
       </Routes>
     </BrowserRouter>
     </ProductProvider>
