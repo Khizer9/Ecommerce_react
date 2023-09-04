@@ -6,9 +6,13 @@ import Signup from "./components/screens/Signup";
 import Service from "./components/screens/Service";
 import Contact from "./components/screens/Contact";
 import { ProductProvider } from "./context/ProductContext";
+import ProductDetails from "./components/screens/ProductDetails";
+import Products from "./components/screens/Products";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
+    <CartProvider>
     <ProductProvider>
     <BrowserRouter>
       <Routes>
@@ -18,9 +22,12 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/services" element={<Service />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product-detail/:id" element={<ProductDetails />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
     </ProductProvider>
+    </CartProvider>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useData } from '../../context/ProductContext'
+import { Link } from 'react-router-dom';
 
 const ProductCollections = () => {
 
@@ -28,7 +29,7 @@ const ProductCollections = () => {
     {loading ? data.slice(0, 8).map((product) => (
         <div key={product.id}>
         <li>
-        <a href="#" className="group block overflow-hidden">
+        <Link to={`/product-detail/${encodeURIComponent(JSON.stringify(product))}`} className="group block overflow-hidden">
           <img
             src={product.thumbnail}
             alt={product.title}
@@ -48,7 +49,7 @@ const ProductCollections = () => {
               <span className="tracking-wider text-gray-900"> {product.price} </span>
             </p>
           </div>
-        </a>
+        </Link>
       </li>
       </div>
       )): 'Loading... '}

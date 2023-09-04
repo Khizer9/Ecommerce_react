@@ -64,10 +64,10 @@ const TopNav = () => {
           </li>
           <li>
             <Link
-              to={"/about-us"}
-              className={`text-sm ${activeLink("about-us", linkName)} `}
+              to={"/products"}
+              className={`text-sm ${activeLink("products", linkName)} `}
             >
-              About Us
+              Products
             </Link>
           </li>
           <li className="text-gray-300">
@@ -87,8 +87,8 @@ const TopNav = () => {
             </svg>
           </li>
           <li>
-            <Link className={`text-sm ${activeLink("services", linkName)} `} to="/services">
-              Services
+            <Link className={`text-sm ${activeLink("about-us", linkName)} `} to="/about-us">
+              About
             </Link>
           </li>
           <li className="text-gray-300">
