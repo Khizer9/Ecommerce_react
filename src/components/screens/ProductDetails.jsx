@@ -13,6 +13,7 @@ const ProductDetails = () => {
     const { addToCart} = useCart();
 
     const handleAddToCart = () => {
+      
       addToCart(product);
     };
 
