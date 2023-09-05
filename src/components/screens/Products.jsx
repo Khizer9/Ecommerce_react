@@ -3,15 +3,10 @@ import TopNav from '../UI/TopNav'
 import { useData } from '../../context/ProductContext'
 import { Link } from 'react-router-dom'
 import Footer from '../UI/Footer'
-import ProductDetails from './ProductDetails'
 
 const Products = () => {
 
     const {data, loading} = useData()
-
-    const addToCart = () => {
-      console.log( "add to cart");
-    };
 
   return (
     <>
@@ -34,7 +29,6 @@ const Products = () => {
         <div key={product.id}>
         <li>
         <Link to={`/product-detail/${encodeURIComponent(JSON.stringify(product))}`}  className="group block overflow-hidden">
-        <ProductDetails SingleProduct={product} addToCart={addToCart} />
           <img
             src={product.thumbnail}
             alt={product.title}

@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import TopNav from "../UI/TopNav";
 import Footer from "../UI/Footer";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const submitHandler = () => {
+    console.log({email, password})
+  }
+
   return (
     <>
       <TopNav />
       <section className="text-gray-600 body-font relative">
         <div className="absolute inset-0 bg-blue-800">
-          {/* <iframe
+          <iframe
             width="100%"
             height="100%"
             frameborder="0"
@@ -18,7 +26,7 @@ const Login = () => {
             title="map"
             scrolling="no"
             src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-          ></iframe> */}
+          ></iframe>
         </div>
         <div className="container px-5 py-24 mx-auto flex">
           <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
@@ -36,6 +44,8 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
@@ -48,11 +58,13 @@ const Login = () => {
                 type="password"
                 id="email"
                 name="email"
+                value={password}
+                onChange={(e)=> setPassword(e.target.value)}
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
 
-            <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            <button onClick={submitHandler} className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Login
             </button>
             <p className="mt-10 text-sm text-gray-500 sm:mt-0" style={{marginTop: "10px"}}>

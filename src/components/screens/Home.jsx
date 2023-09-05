@@ -23,8 +23,8 @@ const Home = () => {
       <TestimonialAdvance />
       <Team />
       <Button
-        btnText={"About"}
-        linkAddress={"/about-us"}
+        btnText={"Products"}
+        linkAddress={"/products"}
         style={{
           display: "flex",
           justifyContent: "center",

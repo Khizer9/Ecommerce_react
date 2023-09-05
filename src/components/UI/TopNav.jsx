@@ -113,11 +113,9 @@ const TopNav = () => {
               Contact
             </Link>
           </li>
-          <Link className={`text-sm ${activeLink("contact", linkName)} `} to="/carts">
-            <h5>Cart - {cart.length}</h5>
-            </Link>
-        
         </ul>
+
+        
 
         <Link
           className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
@@ -131,6 +129,13 @@ const TopNav = () => {
         >
           Sign up
         </Link>
+
+        <Link className={`text-sm ${activeLink("contact", linkName)} `} to="/carts">
+          <span class="cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+              <span class="label">{cart.length}</span>
+          </span> 
+            </Link>
       </nav>
 
       {/* mpobile menu */}

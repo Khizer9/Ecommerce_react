@@ -2,8 +2,19 @@ import React from 'react'
 import TopNav from '../UI/TopNav'
 import { Link } from 'react-router-dom'
 import Footer from '../UI/Footer'
+import { useState } from 'react'
 
 const Signup = () => {
+  const [firstName, setFirstName] = useState('')
+  const [lasttName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConf, setPasswordConf] = useState('')
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log({firstName, lasttName, email, password, passwordConf})
+  }
   return (
     <div>
       <TopNav />
@@ -94,6 +105,8 @@ const Signup = () => {
               type="text"
               id="FirstName"
               name="first_name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
@@ -110,6 +123,8 @@ const Signup = () => {
               type="text"
               id="LastName"
               name="last_name"
+              value={lasttName}
+              onChange={(e) => setLastName(e.target.value)}
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
@@ -123,6 +138,8 @@ const Signup = () => {
               type="email"
               id="Email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
@@ -139,6 +156,8 @@ const Signup = () => {
               type="password"
               id="Password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
@@ -155,6 +174,8 @@ const Signup = () => {
               type="password"
               id="PasswordConfirmation"
               name="password_confirmation"
+              value={passwordConf}
+              onChange={(e) => setPasswordConf(e.target.value)}
               className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
             />
           </div>
@@ -187,7 +208,7 @@ const Signup = () => {
           </div>
 
           <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-            <button
+            <button onClick={submitHandler}
               className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
             >
               Create an account
