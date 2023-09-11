@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const ProductCollections = () => {
 
   const { data , loading }= useData();
+  console.log(data, "data")
 
   return (
     <section>

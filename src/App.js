@@ -10,6 +10,10 @@ import ProductDetails from "./components/screens/ProductDetails";
 import Products from "./components/screens/Products";
 import { CartProvider } from "./context/CartContext";
 import CartDetails from "./components/UI/CartDetails";
+import Checkout from './components/screens/Checkout'
+import Smartphone from "./components/screens/Smartphone";
+import Fragrance from "./components/screens/Fragrance";
+import Skincare from "./components/screens/Skincare";
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
         <Route path="/product-detail/:id" element={<ProductDetails />} />
         <Route path="/products" element={<Products />} />
         <Route path="/carts" element={<CartDetails />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/smartphone" element={<Smartphone />} />
+        <Route path="/fragrance" element={<Fragrance />} />
+        <Route path="/skincare" element={<Skincare />} />
       </Routes>
     </BrowserRouter>
     </ProductProvider>

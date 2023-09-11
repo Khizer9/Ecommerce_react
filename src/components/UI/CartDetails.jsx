@@ -1,6 +1,7 @@
 import React from 'react'
 import TopNav from './TopNav'
 import { useCart } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
 const CartDetails = () => {
 
@@ -124,12 +125,12 @@ const CartDetails = () => {
             </div>
 
             <div className="flex justify-end">
-              <a
-                href="#"
+              <Link
+                to="/checkout"
                 className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
               >
                 Checkout
-              </a>
+              </Link>
             </div>
           </div>
         </div>
