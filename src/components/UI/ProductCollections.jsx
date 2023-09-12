@@ -1,33 +1,36 @@
 import React from 'react'
 import { useData } from '../../context/ProductContext'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-const ProductCollections = () => {
+const ProductCollections = ({searchQuery}) => {
 
   const { data , loading }= useData();
-  console.log(data, "data")
+  const [filterdata, setFilterData] = useState([])
+
+  useEffect(() => {
+    if(loading && data){
+      const filter = data.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+      setFilterData(filter)
+    } 
+  }, [loading, data, searchQuery])
 
   return (
     <section>
   <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-    <header>
+  <header className="text-center">
       <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
-        Feature Product
+        Featured Products
       </h2>
 
-      <p className="mt-4 max-w-md text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-        praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-        natus?
+      <p className="max-w-xl mx-auto mt-4 text-gray-500">
+      Experience the epitome of computing excellence with our laptops. Powered by cutting-edge processors and ample RAM, these machines deliver powerful performance for all your tasks, whether it's handling complex work projects or immersing yourself in high-definition multimedia content.
       </p>
     </header>
 
-    <div className="mt-8">
-      <p className="text-sm text-gray-500">Showing <span> 4 </span> of 40</p>
-    </div>
-
     <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {loading ? data.slice(0, 8).map((product) => (
+    {loading ? filterdata.slice(0, 8).map((product) => (
         <div key={product.id}>
         <li>
         <Link to={`/product-detail/${encodeURIComponent(JSON.stringify(product))}`} className="group block overflow-hidden">
@@ -53,86 +56,11 @@ const ProductCollections = () => {
         </Link>
       </li>
       </div>
-      )): 'Loading... '}
+      )): <iframe src="https://giphy.com/embed/y1ZBcOGOOtlpC" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>}
       
     </ul>
 
-    <ol className="mt-8 flex justify-center gap-1 text-xs font-medium">
-      <li>
-        <a
-          href="#"
-          className="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100"
-        >
-          <span className="sr-only">Prev Page</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="#"
-          className="block h-8 w-8 rounded border border-gray-100 text-center leading-8"
-        >
-          1
-        </a>
-      </li>
-
-      <li
-        className="block h-8 w-8 rounded border-black bg-black text-center leading-8 text-white"
-      >
-        2
-      </li>
-
-      <li>
-        <a
-          href="#"
-          className="block h-8 w-8 rounded border border-gray-100 text-center leading-8"
-        >
-          3
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="#"
-          className="block h-8 w-8 rounded border border-gray-100 text-center leading-8"
-        >
-          4
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="#"  
-          className="inline-flex h-8 w-8 items-center justify-center rounded border border-gray-100"
-        >
-          <span className="sr-only">Next Page</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </a>
-      </li>
-    </ol>
+   
   </div>
 </section>
   )

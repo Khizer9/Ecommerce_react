@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TopNav from "../UI/TopNav";
 import Stats from "../UI/Stats";
 import Footer from "../UI/Footer";
@@ -9,8 +9,15 @@ import MainSlider from "../UI/MainSlider";
 import TestimonialManual from "../UI/TestimonialManual";
 import FeatureCollection from "../UI/FeatureCollection";
 import ProductCollections from "../UI/ProductCollections";
+import FeatureSection from "../UI/FeatureSection";
+import SearchInput from "../UI/SearchInput";
 
 const Home = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearch = (query) => {
+    setSearchQuery(query)
+  }
 
   return (
     <>
@@ -18,7 +25,9 @@ const Home = () => {
       <MainSlider />
       <Stats />
       <FeatureCollection />
-      <ProductCollections />
+      <FeatureSection />
+      <SearchInput onSearch={handleSearch} style={{width: '50%', margin: 'auto'}}/>
+      <ProductCollections searchQuery={searchQuery}/>
       <TestimonialManual />
       <TestimonialAdvance />
       <Team />

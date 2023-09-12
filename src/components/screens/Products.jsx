@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TopNav from '../UI/TopNav'
 import { useData } from '../../context/ProductContext'
 import { Link } from 'react-router-dom'
 import Footer from '../UI/Footer'
+import SearchInput from '../UI/SearchInput'
 
 const Products = () => {
 
     const {data, loading} = useData()
+    const [filterData, setFilterData] = useState([])
+
+    useEffect(()=> {
+      if(data){
+        setFilterData(data)
+      }
+     }, [data])
+    
+
+    const handleSearch = (query) => {
+      const filter = data.filter((item) => item.title.toLowerCase().includes(query.toLowerCase()))
+      setFilterData(filter)
+    }
 
   return (
     <>
@@ -24,8 +38,12 @@ const Products = () => {
       </p>
     </header>
 
+    <SearchInput onSearch={handleSearch} style={{width: '30%', marginInlineStart: 'auto',  borderColor: 'gray',
+    border: '1px solid gray',
+    borderRadius: '5px'}}/>
+
     <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {loading ? data.map((product) => (
+    {loading ? filterData.map((product) => (
         <div key={product.id}>
         <li>
         <Link to={`/product-detail/${encodeURIComponent(JSON.stringify(product))}`}  className="group block overflow-hidden">

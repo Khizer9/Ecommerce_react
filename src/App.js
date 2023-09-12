@@ -14,6 +14,7 @@ import Checkout from './components/screens/Checkout'
 import Smartphone from "./components/screens/Smartphone";
 import Fragrance from "./components/screens/Fragrance";
 import Skincare from "./components/screens/Skincare";
+import Laptop from "./components/screens/Laptop";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/smartphone" element={<Smartphone />} />
         <Route path="/fragrance" element={<Fragrance />} />
         <Route path="/skincare" element={<Skincare />} />
+        <Route path="/laptop" element={<Laptop />} />
       </Routes>
     </BrowserRouter>
     </ProductProvider>

@@ -14,9 +14,7 @@ const FeatureCollection = () => {
       </h2>
 
       <p className="max-w-md mx-auto mt-4 text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-        praesentium cumque iure dicta incidunt est ipsam, officia dolor fugit
-        natus?
+      Step into a world of timeless sophistication and modern charm with our brand-new collection, "Elegance Redefined."
       </p>
     </header>
 
