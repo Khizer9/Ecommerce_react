@@ -7,14 +7,14 @@ import { useEffect } from 'react';
 const ProductCollections = ({searchQuery}) => {
 
   const { data , loading }= useData();
-  const [filterdata, setFilterData] = useState([])
+  // const [filterdata, setFilterData] = useState([])
 
-  useEffect(() => {
-    if(loading && data){
-      const filter = data.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
-      setFilterData(filter)
-    } 
-  }, [loading, data, searchQuery])
+  // useEffect(() => {
+  //   if(loading && data){
+  //     const filter = data.filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  //     setFilterData(filter)
+  //   } 
+  // }, [loading, data, searchQuery])
 
   return (
     <section>
@@ -30,7 +30,7 @@ const ProductCollections = ({searchQuery}) => {
     </header>
 
     <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    {loading ? filterdata.slice(0, 8).map((product) => (
+    {loading ? data.slice(0, 8).map((product) => (
         <div key={product.id}>
         <li>
         <Link to={`/product-detail/${encodeURIComponent(JSON.stringify(product))}`} className="group block overflow-hidden">
@@ -56,7 +56,7 @@ const ProductCollections = ({searchQuery}) => {
         </Link>
       </li>
       </div>
-      )): <iframe src="https://giphy.com/embed/y1ZBcOGOOtlpC" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>}
+      )): "Loading..."}
       
     </ul>
 
