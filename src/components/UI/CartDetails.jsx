@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TopNav from './TopNav'
 import { useCart } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
 const CartDetails = () => {
+  const { cart, removeFromCart } = useCart()
+  const [quantities, setQuantities] = useState(
+    cart.reduce((quantities, product) => {
+      quantities[product.id] = 1;
+      return quantities;
+    }, {})
+  );
 
-    const { cart, removeFromCart } = useCart()
 
-  const totalAmountFromCarts = cart.reduce((x, y) => x + parseFloat(y.price), 0) ;
+  const totalAmountFromCarts = cart.reduce((total, item) => total + parseFloat(item.price) * quantities[item.id], 0);
+
+
+  const handleQuantityChange = (productId, newQuantity) => {
+    if (!isNaN(newQuantity) && newQuantity >= 1) {
+      setQuantities((prevQuantities) => ({
+        ...prevQuantities,
+        [productId]: newQuantity,
+      }));
+    }
+  };
 
   return (
     <div>
@@ -46,7 +62,10 @@ const CartDetails = () => {
                 <input
                   type="number"
                   min="1"
-                  value="1"
+                  value={quantities[product.id]}
+                  onChange={(e) =>
+                    handleQuantityChange(product.id, parseInt(e.target.value))
+                  }
                   id="Line1Qty"
                   className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                 />
