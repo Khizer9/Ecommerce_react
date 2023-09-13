@@ -11,7 +11,7 @@ const SearchInput = ({onSearch, style}) => {
     }
 
     const handleSearchClick = () => {
-        onSearch(search)
+        onSearch(search) 
     }
 
   return (
@@ -20,6 +20,7 @@ const SearchInput = ({onSearch, style}) => {
   <label for="Search" class="sr-only"> Search </label>
 
   <input
+  style={{padding: '15px', border: '1px solid gray'}}
     type="text"
     id="Search"
     placeholder="Search for..."
