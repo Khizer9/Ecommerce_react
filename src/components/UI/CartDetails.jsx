@@ -34,11 +34,11 @@ const CartDetails = () => {
     <div className="mx-auto max-w-3xl">
       <header className="text-center" style={{display:'flex', justifyContent: 'space-between'}}>
         <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
-        <button onClick={clearCart}
+       {cart.length === 0 ? '' : <button onClick={clearCart}
     className="px-4 py-2 text-gray-700 border rounded-lg duration-100 hover:border-indigo-600 active:shadow-lg"
 >
     Clear All
-</button>
+</button>}
       </header>
 
       <div className="mt-8">
