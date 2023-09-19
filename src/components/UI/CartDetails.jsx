@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import TopNav from './TopNav'
 import { useCart } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
 const CartDetails = () => {
-  const { cart, removeFromCart } = useCart()
-  const [_cart, setCart] = useState(cart)
+  const { cart, clearCart, removeFromCart } = useCart()
   const [quantities, setQuantities] = useState(
     cart.reduce((quantities, product) => {
       quantities[product.id] = 1;
@@ -13,19 +12,8 @@ const CartDetails = () => {
     }, {})
   );
 
-  const removeCart = (product) => {
-    const updateCart = _cart.filter((x)=> x.id !== product.id)
-    setCart(updateCart)
-  }
 
-
-  const clearCart = () => {
-    localStorage.removeItem('cart')
-    setCart([])
-  }
-
-
-  const totalAmountFromCarts = _cart.reduce((total, item) => total + parseFloat(item.price) * quantities[item.id], 0);
+  const totalAmountFromCarts = cart.reduce((total, item) => total + parseFloat(item.price) * quantities[item.id], 0);
 
 
   const handleQuantityChange = (productId, newQuantity) => {
@@ -55,7 +43,7 @@ const CartDetails = () => {
 
       <div className="mt-8">
         <ul className="space-y-4">
-            {_cart.length === 0 ? 'Empty Cart' : _cart.map((product) =>  (
+            {cart.length === 0 ? 'Empty Cart' : cart.map((product) =>  (
                 <>
                 <li className="flex items-center gap-4">
 
@@ -88,7 +76,7 @@ const CartDetails = () => {
                 />
               </form>
 
-              <button className="text-gray-600 transition hover:text-red-600" onClick={()=> removeCart(product)}>
+              <button className="text-gray-600 transition hover:text-red-600" onClick={()=> removeFromCart(product)}>
                 <span className="sr-only">Remove item</span>
 
                 <svg
