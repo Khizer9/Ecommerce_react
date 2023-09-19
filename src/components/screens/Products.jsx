@@ -6,7 +6,6 @@ import Footer from '../UI/Footer'
 import SearchInput from '../UI/SearchInput'
 
 const Products = () => {
-
     const {data, loading} = useData()
     const [filterData, setFilterData] = useState([])
 
