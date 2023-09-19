@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TopNav from './TopNav'
 import { useCart } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
 const CartDetails = () => {
   const { cart, removeFromCart } = useCart()
+  const [_cart, setCart] = useState(cart)
   const [quantities, setQuantities] = useState(
     cart.reduce((quantities, product) => {
       quantities[product.id] = 1;
@@ -12,8 +13,19 @@ const CartDetails = () => {
     }, {})
   );
 
+  const removeCart = (product) => {
+    const updateCart = _cart.filter((x)=> x.id !== product.id)
+    setCart(updateCart)
+  }
 
-  const totalAmountFromCarts = cart.reduce((total, item) => total + parseFloat(item.price) * quantities[item.id], 0);
+
+  const clearCart = () => {
+    localStorage.removeItem('cart')
+    setCart([])
+  }
+
+
+  const totalAmountFromCarts = _cart.reduce((total, item) => total + parseFloat(item.price) * quantities[item.id], 0);
 
 
   const handleQuantityChange = (productId, newQuantity) => {
@@ -32,13 +44,18 @@ const CartDetails = () => {
 <section>
   <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
     <div className="mx-auto max-w-3xl">
-      <header className="text-center">
+      <header className="text-center" style={{display:'flex', justifyContent: 'space-between'}}>
         <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
+        <button onClick={clearCart}
+    className="px-4 py-2 text-gray-700 border rounded-lg duration-100 hover:border-indigo-600 active:shadow-lg"
+>
+    Clear All
+</button>
       </header>
 
       <div className="mt-8">
         <ul className="space-y-4">
-            {cart.map((product) =>  (
+            {_cart.length === 0 ? 'Empty Cart' : _cart.map((product) =>  (
                 <>
                 <li className="flex items-center gap-4">
 
@@ -71,7 +88,7 @@ const CartDetails = () => {
                 />
               </form>
 
-              <button className="text-gray-600 transition hover:text-red-600" onClick={()=> removeFromCart(product)}>
+              <button className="text-gray-600 transition hover:text-red-600" onClick={()=> removeCart(product)}>
                 <span className="sr-only">Remove item</span>
 
                 <svg
